@@ -45,7 +45,7 @@ const Header = () => {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !menuButtonRef.current.contains(event.target)) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target) && menuButtonRef.current && !menuButtonRef.current.contains(event.target)) {
                 setIsOpen(false);
             }
         };
@@ -60,8 +60,7 @@ const Header = () => {
     return (
         <section className='bg-slate-200 fixed w-full z-50 shadow-lg'>
             <header id="header" className="flex bg-gray-800 text-black py-4 relative transition-all duration-500 ">
-
-                <div className=" flex items-center w-full justify-between">
+                <div className="flex items-center w-full justify-between">
                     {isMobile && (
                         <button
                             className="block md:hidden text-black focus:outline-none ml-7"
@@ -92,28 +91,26 @@ const Header = () => {
                             </svg>
                         </button>
                     )}
-                    <div className={`${window.innerWidth <= 768? 'ml-5': 'ml-20'} text-lg font-bold`}>
+                    <div className={`${isMobile ? 'ml-5' : 'ml-20'} text-lg font-bold`}>
                         LOGO
                     </div>
-                    <div className=" container flex justify-end">
-
+                    <div className="container flex justify-end ">
                         <nav
                             ref={dropdownRef}
-                            className={`absolute top-full left-0 right-0 md:relative md:flex md:space-x-6 ${isOpen || !isMobile ? 'block' : 'hidden'
-                                } md:flex-row md:space-x-6 mt-4 md:mt-0 z-10 rounded-lg overflow-hidden `}
+                            className={`absolute top-full left-0 right-0 md:relative md:flex md:space-x-6 ${isOpen || !isMobile ? 'block ml-5' : 'hidden'} md:space-x-6 mt-4 md:mt-0 z-10 rounded-lg overflow-hidden`}
                         >
-                            <div className={`bg-slate-200 py-2 p-auto  ${window.innerWidth <= 768 ? 'w-40 rounded-lg rounded-br-3xl text-center ml-5' : ''}`}>
+                            <div className={`bg-slate-200 py-2 ${isMobile ? 'w-40 rounded-lg rounded-br-3xl text-center' : 'flex flex-row'}`}>
                                 {['home', 'about me', 'skills', 'experience', 'projects', 'contact'].map((section) => (
                                     <Link
                                         key={section}
                                         to={section}
                                         spy={true}
                                         smooth={true}
-                                        offset={-70}
+                                        offset={isMobile ? -70 : -60}
                                         duration={50}
                                         onClick={() => setIsOpen(false)} // Close dropdown on link click
-                                        activeClass={`text-orange-500 ${window.innerWidth <= 768? '':"underline"}`}
-                                        className={`block  mx-2 md:inline-block cursor-pointer hover:text-orange-500 ${window.innerWidth <= 768 ? 'border border-gray-300 rounded-md rounded-br-2xl bg-white m-3' : ''}`}
+                                        activeClass={`text-orange-500 ${isMobile ? '' : "underline"}`}
+                                        className={`block mx-2 md:inline-block cursor-pointer hover:text-orange-500 ${isMobile ? 'border border-gray-300 rounded-md rounded-br-2xl bg-white m-3' : ''}`}
                                     >
                                         {section.toUpperCase()}
                                     </Link>
@@ -122,7 +119,6 @@ const Header = () => {
                         </nav>
                     </div>
                 </div>
-
             </header>
         </section>
     );
