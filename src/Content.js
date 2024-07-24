@@ -9,10 +9,10 @@ import nodejs from "./assets/images/Skills/node.png";
 import python from "./assets/images/Skills/python.png";
 
 
-import project1 from "./assets/images/projects/img1.png";
-import project2 from "./assets/images/projects/img2.png";
-import project3 from "./assets/images/projects/img3.png";
-import person_project from "./assets/images/projects/person.png";
+// import project1 from "./assets/images/projects/img1.png";
+// import project2 from "./assets/images/projects/img2.png";
+// import project3 from "./assets/images/projects/img3.png";
+// import person_project from "./assets/images/projects/person.png";
 
 import avatar1 from "./assets/images/Testimonials/avatar1.png";
 import avatar2 from "./assets/images/Testimonials/avatar2.png";
@@ -25,7 +25,7 @@ import Hireme_person from "./assets/images/Hireme/person.png";
 import { GrMail } from "react-icons/gr";
 import { MdArrowForward, MdCall } from "react-icons/md";
 
-
+ 
 export const content = {
   
 
@@ -106,19 +106,19 @@ export const content = {
   Projects: {
     title: "Projects",
     subtitle: "MY CREATION",
-    image: person_project,
+    //image: person_project,
     project_content: [
       {
         title: "Gym Website",
-        image: project1,
+        // image: project1,
       },
       {
         title: "Social Media web",
-        image: project2,
+        // image: project2,
       },
       {
         title: "Creative Website",
-        image: project3,
+        // image: project3,
       },
     ],
   },
