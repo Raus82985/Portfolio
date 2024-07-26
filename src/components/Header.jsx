@@ -7,16 +7,37 @@ const Header = () => {
     const dropdownRef = useRef(null);
     const menuButtonRef = useRef(null);
 
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false);
+    //     };
+
+    //     handleResize();
+    //     window.addEventListener('resize', handleResize);
+
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     };
+    // }, []);
+
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
+        // Create a media query list
+        const mediaQueryList = window.matchMedia('(max-width: 768px)');
+
+        // Function to handle media query changes
+        const handleMediaQueryChange = (event) => {
+            setIsMobile(event.matches);
         };
 
-        handleResize();
-        window.addEventListener('resize', handleResize);
+        // Set initial state
+        handleMediaQueryChange(mediaQueryList);
 
+        // Add event listener
+        mediaQueryList.addEventListener('change', handleMediaQueryChange);
+
+        // Clean up the event listener on component unmount
         return () => {
-            window.removeEventListener('resize', handleResize);
+            mediaQueryList.removeEventListener('change', handleMediaQueryChange);
         };
     }, []);
 
@@ -94,10 +115,10 @@ const Header = () => {
                     <div className={`${isMobile ? 'ml-5' : 'ml-20'} text-lg font-bold`}>
                         LOGO
                     </div>
-                    <div className="container flex justify-end ">
+                    <div className="container flex justify-end">
                         <nav
                             ref={dropdownRef}
-                            className={`absolute top-full left-0 right-0 md:relative md:flex md:space-x-6 ${isOpen || !isMobile ? 'block ml-5' : 'hidden'} md:space-x-6 mt-4 md:mt-0 z-10 rounded-lg overflow-hidden`}
+                            className={`absolute top-full left-0 right-0 md:relative md:flex ${isOpen || !isMobile ? 'block ml-5' : 'hidden'} mt-4 md:mt-0 z-10 rounded-lg overflow-hidden`}
                         >
                             <div className={`bg-slate-200 py-2 ${isMobile ? 'w-40 rounded-lg rounded-br-3xl text-center' : 'flex flex-row'}`}>
                                 {['home', 'about me', 'skills', 'experience', 'projects', 'contact'].map((section) => (
@@ -110,7 +131,7 @@ const Header = () => {
                                         duration={50}
                                         onClick={() => setIsOpen(false)} // Close dropdown on link click
                                         activeClass={`text-orange-500 ${isMobile ? '' : "underline"}`}
-                                        className={`block mx-2 md:inline-block cursor-pointer hover:text-orange-500 ${isMobile ? 'border border-gray-300 rounded-md rounded-br-2xl bg-white m-3' : ''}`}
+                                        className={`block mx-2 md:inline-block cursor-pointer hover:text-orange-500 ${isMobile ? 'border border-gray-300 rounded-md rounded-br-2xl bg-white m-2' : ''}`}
                                     >
                                         {section.toUpperCase()}
                                     </Link>
