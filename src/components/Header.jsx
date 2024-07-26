@@ -1,45 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import { useMediaQuery } from 'react-responsive';
 
 const Header = () => {
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const [isOpen, setIsOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
     const dropdownRef = useRef(null);
     const menuButtonRef = useRef(null);
-
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //         window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false);
-    //     };
-
-    //     handleResize();
-    //     window.addEventListener('resize', handleResize);
-
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     };
-    // }, []);
-
-    useEffect(() => {
-        // Create a media query list
-        const mediaQueryList = window.matchMedia('(max-width: 768px)');
-
-        // Function to handle media query changes
-        const handleMediaQueryChange = (event) => {
-            setIsMobile(event.matches);
-        };
-
-        // Set initial state
-        handleMediaQueryChange(mediaQueryList);
-
-        // Add event listener
-        mediaQueryList.addEventListener('change', handleMediaQueryChange);
-
-        // Clean up the event listener on component unmount
-        return () => {
-            mediaQueryList.removeEventListener('change', handleMediaQueryChange);
-        };
-    }, []);
 
     const toggleMenu = () => {
         setIsOpen(prev => !prev);
@@ -113,7 +80,7 @@ const Header = () => {
                         </button>
                     )}
                     <div className={`${isMobile ? 'ml-5' : 'ml-20'} text-lg font-bold`}>
-                        LOGO
+                        <p className='font-Paprika'>RK</p>
                     </div>
                     <div className="container flex justify-end">
                         <nav
