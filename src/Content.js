@@ -4,17 +4,14 @@ import Hero_person from "./assets/images/Hero/person.png";
 
 import currency from "./assets/images/Projects/currency.png"
 import todo from "./assets/images/Projects/todo.png"
-// import project1 from "./assets/images/projects/img1.png";
-// import project2 from "./assets/images/projects/img2.png";
-// import project3 from "./assets/images/projects/img3.png";
-// import person_project from "./assets/images/projects/person.png";
+
 
 
 import Hireme_person from "./assets/images/Hireme/person.png";
 
 // import icons from react-icons
 import { GrMail } from "react-icons/gr";
-import { MdArrowForward, MdCall } from "react-icons/md";
+import { MdCall } from "react-icons/md";
 
 
 export const content = {
@@ -55,19 +52,41 @@ export const content = {
 
   Experience: {
     title: "EXPERIENCE",
-    //image: person_project,
-    project_content: [
+
+    Research: {
+      Research_title: "Publications",
+      research_content: [
+        {
+          publication: "Secrecy Performance of Untrusted AF Relays in Underlay Cognitive Radio Networks*",
+          link: "https://drive.google.com/file/d/1UFI-asz2cDuryb65gn1_6LitSzs613O4/view?usp=sharing",
+          para: "In an underlay cognitive radio (CR) system, secondary users can transmit during primary transmissions but must limit interference to the primary receiver. Amplify-and-forward (AF) relaying enhances CR performance by offering an alternative signal path, though the wireless medium's broadcast nature risks eavesdropping. This study examines the secrecy performance of an untrusted AF relay in a semi-duplex model. We introduce a new power and interference temperature limit (ITL) apportioning factor, α, to allocate ITL across two hops using different relay gain policies. Future work will focus on modeling α as an instantaneous variable to explore potential improvements in secrecy performance."
+        },
+        {
+          publication: "Secrecy and Reliability Analysis of Underlay Cooperative Radios with CSI-Assisted Power Apportioning*",
+          link: "https://drive.google.com/file/d/1g7A_QrAFAfZ1IK5K9ZXUW4Rm_yZF0nyU/view?usp=sharing",
+          para: "In an underlay cognitive radio (CR) system, secondary users can transmit during primary transmissions but must limit interference to the primary receiver. Amplify-and-forward (AF) relaying enhances CR performance by offering an alternative signal path but risks eavesdropping due to the wireless medium's broadcast nature. This study explores the secrecy performance of an underlay cooperative CR network with an eavesdropping AF relay using a semi-duplex model. We introduce a novel interference temperature limit (ITL) apportioning factor to enable destination-assisted jamming and use a new joint secrecy and reliability metric. Results indicate that an optimal ITL apportioning factor minimizes joint secrecy and reliability outage, showing improved performance with perfect channel state information for secondary nodes."
+        },
+        
+        
+      ]
+    },
+
+
+    Experience_content: [
       {
-        title: "Gym Website",
+        Experience: "Internship at ERTL (east)",
+        Roal: "Web Vulnerability Tester",
+        para1: "Led comprehensive vulnerability assessments on 5 government websites using tools including Burp Suite, App Scan, and Kali Linux (Putty).",
+        para2: "Generated detailed reports identifying and prioritizing 100+ vulnerabilities performing risk assessments that led to targeted mitigation recommendations thereby significantly enhancing site security.",
+        para3: "Implemented effective mitigation strategies resulting in reduction in vulnerabilit exposure, thereby greatly improving the overall website security posture."
         // image: project1,
       },
       {
-        title: "Social Media web",
-        // image: project2,
-      },
-      {
-        title: "Creative Website",
-        // image: project3,
+        Experience: "Contribution in Placement Portal Website (IIIT Kalyani)",
+        Roal: "Web Devloper",
+        para1: "Developed and enhanced the placement portal website for IIIT Kalyani using HTML, CSS, JavaScript, and React, resulting in a more responsive and user-friendly interface",
+        para2: "Collaborated with a team to implement front-end features and optimize web performance, improving the overall functionality and user experience of the placement portal hosted on GitHub.",
+        // image: project1,
       },
     ],
   },
@@ -89,13 +108,7 @@ export const content = {
         name: "Currency Converter",
         project_url: 'https://currency-converter-ashy-theta-43.vercel.app/'
       },
-      {
-        about_project:
-          "I developed a responsive currency converter using React, featuring a clean UI and real-time exchange rates via API integration. The project supports multiple currencies and includes error handling for robust user feedback. I utilized React's state management for efficient data handling and optimized performance with techniques like lazy loading. The site is accessible, ensuring usability for all users. The project is deployed with scalable infrastructure, and I actively maintain and update for continuous improvement.",
-        img: currency,
-        name: "Currency Converter",
-        project_url: 'https://currency-converter-ashy-theta-43.vercel.app/'
-      },
+     
     ],
   },
 
