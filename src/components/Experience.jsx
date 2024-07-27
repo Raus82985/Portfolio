@@ -51,7 +51,7 @@ const Experience = () => {
               {Experience.Research.research_content.map((research, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-3xl p-5 mx-auto mb-5 border-b-8 border-[#FAF9FD] h-fit w-96 text-center"
+                  className={`bg-white rounded-3xl p-5 mx-auto mb-5 border-b-8 border-[#FAF9FD] h-fit ${isMobile?'w-fill mx-5':"w-96"} text-center`}
                   data-aos="fade-down"
                 >
                   <h5 className="font-bold font-Poppins">{research.publication}</h5>
