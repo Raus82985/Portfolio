@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { useState, useEffect } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import { useMediaQuery } from 'react-responsive';
 
 Modal.setAppElement('#root');
 
@@ -10,16 +11,15 @@ const Project = () => {
   const { Project } = content;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   useEffect(() => {
-    // Disable scroll when the modal is open
     if (modalIsOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
 
-    // Cleanup scroll behavior on unmount
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -39,9 +39,9 @@ const Project = () => {
     <div
       key={i}
       onClick={() => openModal(content)}
-      className="bg-slate-200 cursor-pointer border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 w-80 justify-center mx-auto hover:bg-slate-400"
+      className={`bg-slate-200 cursor-pointer border rounded-lg overflow-hidden shadow-lg hover:bg-slate-400 transform hover:scale-105 transition-all duration-300 ${isMobile ? 'w-full' : 'max-w-md'} my-10 mx-auto`}
     >
-      <img src={content.img} alt={content.name} className="w-80 h-80 object-cover" />
+      <img src={content.img} alt={content.name} className="w-full h-80 object-cover" />
       <div className="p-5 text-center">
         <h5 className="text-lg font-bold">{content.name}</h5>
       </div>
@@ -55,7 +55,7 @@ const Project = () => {
           {Project.title}
         </h4>
 
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <AliceCarousel
             items={items}
             infinite
@@ -63,8 +63,7 @@ const Project = () => {
             mouseTracking
             responsive={{
               0: { items: 1 },
-              768: { items: 2 },
-              1024: { items: 3 },
+              1024: { items: 2 },
             }}
             className="custom-carousel"
           />
@@ -74,10 +73,10 @@ const Project = () => {
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            className="fixed inset-0 flex items-center justify-center p-6 rounded-lg max-w-lg mx-auto bg-slate-600 shadow-lg z-50"
+            className="fixed inset-0 flex items-center justify-center p-6 rounded-lg max-w-lg bg-slate-600 shadow-lg z-50 mx-auto"
             overlayClassName="fixed inset-0 bg-black bg-opacity-60 z-40"
           >
-            <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-white w-full">
+            <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-white mt-10 w-full max-w-sm md:max-w-md">
               <h2 className="text-xl font-bold">{selectedProject.name}</h2>
               <img src={selectedProject.img} alt={selectedProject.name} className="h-40 w-auto rounded-md" />
               <p className="text-sm text-center">{selectedProject.about_project}</p>

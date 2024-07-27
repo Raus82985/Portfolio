@@ -104,6 +104,13 @@ export const content = {
         name: "Currency Converter",
         project_url: 'https://currency-converter-ashy-theta-43.vercel.app/'
       },
+      {
+        about_project:
+          "I developed a responsive currency converter using React, featuring a clean UI and real-time exchange rates via API integration. The project supports multiple currencies and includes error handling for robust user feedback. I utilized React's state management for efficient data handling and optimized performance with techniques like lazy loading. The site is accessible, ensuring usability for all users. The project is deployed with scalable infrastructure, and I actively maintain and update for continuous improvement.",
+        img: currency,
+        name: "Currency Converter",
+        project_url: 'https://currency-converter-ashy-theta-43.vercel.app/'
+      },
     ],
   },
  
