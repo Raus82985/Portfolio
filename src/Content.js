@@ -16,9 +16,9 @@ import Hireme_person from "./assets/images/Hireme/person.png";
 import { GrMail } from "react-icons/gr";
 import { MdArrowForward, MdCall } from "react-icons/md";
 
- 
+
 export const content = {
-  
+
 
   hero: {
     firstName: "Raushan",
@@ -34,42 +34,27 @@ export const content = {
     para: "I am a full-stack MERN developer with expertise in JavaScript, React.js, Node.js, and MongoDB. I build intuitive UIs and scalable back-end systems, focusing on performance, new features, and problem-solving. Check out my portfolio and connect for collaboration. Let's create something exceptional!",
   },
 
+
   skills: {
     title: "Skills",
-    subtitle: "MY TOP SKILLS",
     skills_content: [
-      {
-        name: "Figma",
-        para: "Lorem ipsum text  dummy",
-      },
-      {
-        name: "Node js",
-        para: "Lorem ipsum text  dummy",
-      },
-      {
-        name: "Adobe Photoshop",
-        para: "Lorem ipsum text  dummy",
-      },
-      {
-        name: "React js",
-        para: "Lorem ipsum text  dummy",
-      },
-      {
-        name: "Sketch",
-        para: "Lorem ipsum text  dummy",
-      },
-      {
-        name: "Python",
-        para: "Lorem ipsum text  dummy",
-        // logo: python,
-      },
+      { name: "HTML 5", percentage: 90 },
+      { name: "CSS 3", percentage: 85 },
+      { name: "Java Script", percentage: 80 },
+      { name: "React js", percentage: 75 },
+      { name: "Node js", percentage: 70 },
+      { name: "Express js", percentage: 65 },
+      { name: "Redux", percentage: 60 },
+      { name: "SQL", percentage: 55 },
+      { name: "Mongo DB", percentage: 50 },
+      { name: "Python", percentage: 45 },
     ],
-    icon: MdArrowForward,
   },
 
+
+
   Experience: {
-    title: "Experience",
-    subtitle: "MY CREATION",
+    title: "EXPERIENCE",
     //image: person_project,
     project_content: [
       {
@@ -86,7 +71,7 @@ export const content = {
       },
     ],
   },
-  
+
   Project: {
     title: "PROJECTS",
     Project_content: [
@@ -113,7 +98,7 @@ export const content = {
       },
     ],
   },
- 
+
   Contact: {
     title: "CONTACT ME",
     social_media: [
@@ -129,5 +114,5 @@ export const content = {
       },
     ],
   },
-  
+
 };
