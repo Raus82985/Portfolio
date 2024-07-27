@@ -1,23 +1,14 @@
 // import images
 import Hero_person from "./assets/images/Hero/person.png";
 
-import figma from "./assets/images/Skills/figma.png";
-import sketch from "./assets/images/Skills/sketch.png";
-import ps from "./assets/images/Skills/ps.png";
-import reactjs from "./assets/images/Skills/react.png";
-import nodejs from "./assets/images/Skills/node.png";
-import python from "./assets/images/Skills/python.png";
 
-
+import currency from "./assets/images/Projects/currency.png"
+import todo from "./assets/images/Projects/todo.png"
 // import project1 from "./assets/images/projects/img1.png";
 // import project2 from "./assets/images/projects/img2.png";
 // import project3 from "./assets/images/projects/img3.png";
 // import person_project from "./assets/images/projects/person.png";
 
-import avatar1 from "./assets/images/Testimonials/avatar1.png";
-import avatar2 from "./assets/images/Testimonials/avatar2.png";
-import avatar3 from "./assets/images/Testimonials/avatar3.png";
-import avatar4 from "./assets/images/Testimonials/avatar4.png";
 
 import Hireme_person from "./assets/images/Hireme/person.png";
 
@@ -50,61 +41,34 @@ export const content = {
       {
         name: "Figma",
         para: "Lorem ipsum text  dummy",
-        logo: figma,
       },
       {
         name: "Node js",
         para: "Lorem ipsum text  dummy",
-        logo: nodejs,
       },
       {
         name: "Adobe Photoshop",
         para: "Lorem ipsum text  dummy",
-        logo: ps,
       },
       {
         name: "React js",
         para: "Lorem ipsum text  dummy",
-        logo: reactjs,
       },
       {
         name: "Sketch",
         para: "Lorem ipsum text  dummy",
-        logo: sketch,
       },
       {
         name: "Python",
         para: "Lorem ipsum text  dummy",
-        logo: python,
+        // logo: python,
       },
     ],
     icon: MdArrowForward,
   },
 
-  services: {
-    title: "Services",
-    subtitle: "WHAT I OFFER",
-    service_content: [
-      {
-        title: "Web Development",
-        para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
-        
-      },
-      {
-        title: "ui / ux DESIGNING",
-        para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
-        
-      },
-      {
-        title: "PhotoShop Editing",
-        para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
-        
-      },
-    ],
-  },
-
-  Projects: {
-    title: "Projects",
+  Experience: {
+    title: "Experience",
     subtitle: "MY CREATION",
     //image: person_project,
     project_content: [
@@ -123,33 +87,22 @@ export const content = {
     ],
   },
   
-  Testimonials: {
-    title: "Testimonials",
-    subtitle: "MY CLIENT REVIEWS",
-    testimonials_content: [
+  Project: {
+    title: "PROJECTS",
+    Project_content: [
       {
-        review:
-          "“In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstra”",
-        img: avatar1,
-        name: "JOHN DOE",
+        about_project:
+          "I developed a responsive To-Do app using React, featuring a clean and intuitive interface for task management. The app leverages React's component-based architecture and hooks for efficient state management. It uses local storage to persist tasks, ensuring data is retained even after browser refreshes or closures. Key features include task sequence, due dates, and its updatation as well as deletion technique, enhancing user productivity. The app is optimized for performance and accessibility, providing a seamless experience across devices.",
+        img: todo,
+        name: "TO-DO",
+        project_url: 'https://to-do-pied-xi.vercel.app/'
       },
       {
-        review:
-          "“In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstra”",
-        img: avatar2,
-        name: "Tom Alex",
-      },
-      {
-        review:
-          "“In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstra”",
-        img: avatar3,
-        name: "Johnny",
-      },
-      {
-        review:
-          "“In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstra”",
-        img: avatar4,
-        name: "ROBBIN",
+        about_project:
+          "I developed a responsive currency converter using React, featuring a clean UI and real-time exchange rates via API integration. The project supports multiple currencies and includes error handling for robust user feedback. I utilized React's state management for efficient data handling and optimized performance with techniques like lazy loading. The site is accessible, ensuring usability for all users. The project is deployed with scalable infrastructure, and I actively maintain and update for continuous improvement.",
+        img: currency,
+        name: "Currency Converter",
+        project_url: 'https://currency-converter-ashy-theta-43.vercel.app/'
       },
     ],
   },

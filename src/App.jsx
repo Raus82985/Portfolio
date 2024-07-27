@@ -3,8 +3,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Aboutme from './components/Aboutme';
 import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Testimonials from './components/Testimonials';
+import Experience from './components/Experience';
+import Project from './components/Project';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -15,8 +15,8 @@ const App = () => {
       <Hero id="home" />
       <Aboutme id="about me" />
       <Skills id="skills" />
-      <Projects id="projects" />
-      <Testimonials id="experience" />
+      <Experience id="Experience" />
+      <Project id="projects" />
       <Contact id="contact" />
       <Footer id="footer"/>
     </div>

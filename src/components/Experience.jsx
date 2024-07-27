@@ -2,11 +2,10 @@ import { content } from "../Content";
 import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
 
-const Projects = () => {
-  const { Projects } = content;
+
+const Experience = () => {
+  const { Experience } = content;
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -40,14 +39,14 @@ const Projects = () => {
   }, []);
 
   return (
-    <section className="bg-slate-200" id="projects">
+    <section className="bg-slate-200" id="experience">
       <div className="md:container px-5 pt-14 min-h-screen flex flex-col justify-between">
         <div>
           <h2 className="title" data-aos="fade-down">
-            {Projects.title}
+            {Experience.title}
           </h2>
           <h4 className="subtitle" data-aos="fade-down">
-            {Projects.subtitle}
+            {Experience.subtitle}
           </h4>
           <br />
         </div>
@@ -79,4 +78,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Experience;
