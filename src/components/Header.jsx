@@ -1,115 +1,101 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-scroll';
-import { useMediaQuery } from 'react-responsive';
+import { content } from "../Content";
+import Modal from 'react-modal';
+import { useState, useEffect } from "react";
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
-const Header = () => {
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
-    const menuButtonRef = useRef(null);
+Modal.setAppElement('#root');
 
-    const toggleMenu = () => {
-        setIsOpen(prev => !prev);
+const Project = () => {
+  const { Project } = content;
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
     };
+  }, [modalIsOpen]);
 
-    const handleScroll = () => {
-        const header = document.getElementById('header');
-        if (header) {
-            if (window.scrollY > 0) {
-                header.classList.add('sticky');
-            } else {
-                header.classList.remove('sticky');
-            }
-        }
-        setIsOpen(false);
-    };
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setIsOpen(true);
+  };
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedProject(null);
+  };
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target) && menuButtonRef.current && !menuButtonRef.current.contains(event.target)) {
-                setIsOpen(false);
-            }
-        };
+  const items = Project.Project_content.map((content, i) => (
+    <div
+      key={i}
+      onClick={() => openModal(content)}
+      className="bg-slate-200 cursor-pointer border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 transition-all duration-300 w-full sm:w-80 mx-auto"
+    >
+      <img src={content.img} alt={content.name} className="w-full h-80 object-cover" />
+      <div className="p-5 text-center">
+        <h5 className="text-lg font-bold">{content.name}</h5>
+      </div>
+    </div>
+  ));
 
-        document.addEventListener('mousedown', handleClickOutside);
+  return (
+    <section id="projects" className="py-14">
+      <div className="container mx-auto px-5">
+        <h4 className="text-2xl font-bold text-center mb-8">
+          {Project.title}
+        </h4>
 
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
+        <div className="relative px-4 md:px-0">
+          <AliceCarousel
+            items={items}
+            infinite
+            disableButtonsControls
+            mouseTracking
+            responsive={{
+              0: { items: 1 },
+              768: { items: 2 },
+              1024: { items: 3 },
+            }}
+            className="custom-carousel"
+          />
+        </div>
 
-    return (
-        <section className='bg-slate-200 fixed w-full z-50 shadow-lg'>
-            <header id="header" className="flex bg-gray-800 text-black py-4 relative transition-all duration-500 ">
-                <div className="flex items-center w-full justify-between">
-                    {isMobile && (
-                        <button
-                            className="block md:hidden text-black focus:outline-none ml-7"
-                            onClick={toggleMenu}
-                            ref={menuButtonRef}
-                        >
-                            <svg
-                                className="h-6 w-6 hover:text-orange-500"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                {isOpen ? (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                ) : (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M4 6h16M4 12h16M4 18h10"
-                                    />
-                                )}
-                            </svg>
-                        </button>
-                    )}
-                    <div className={`${isMobile ? 'ml-5' : 'ml-20'} text-lg font-bold`}>
-                        <p className='font-Paprika'>RK</p>
-                    </div>
-                    <div className="container flex justify-end">
-                        <nav
-                            ref={dropdownRef}
-                            className={`absolute top-full left-0 right-0 md:relative md:flex ${isOpen || !isMobile ? 'block ml-5' : 'hidden'} mt-4 md:mt-0 z-10 rounded-lg overflow-hidden`}
-                        >
-                            <div className={`bg-slate-200 py-2 ${isMobile ? 'w-40 rounded-lg rounded-br-3xl text-center' : 'flex flex-row'}`}>
-                                {['home', 'about me', 'skills', 'experience', 'projects', 'contact'].map((section) => (
-                                    <Link
-                                        key={section}
-                                        to={section}
-                                        spy={true}
-                                        smooth={true}
-                                        offset={isMobile ? -70 : -60}
-                                        duration={50}
-                                        onClick={() => setIsOpen(false)} // Close dropdown on link click
-                                        activeClass={`text-orange-500 ${isMobile ? '' : "underline"}`}
-                                        className={`block mx-2 md:inline-block cursor-pointer hover:text-orange-500 ${isMobile ? 'border border-gray-300 rounded-md rounded-br-2xl bg-white m-2' : ''}`}
-                                    >
-                                        {section.toUpperCase()}
-                                    </Link>
-                                ))}
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </header>
-        </section>
-    );
+        {selectedProject && (
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            className="fixed inset-0 flex items-center justify-center p-6 rounded-lg max-w-lg mx-auto bg-slate-600 shadow-lg z-50"
+            overlayClassName="fixed inset-0 bg-black bg-opacity-60 z-40"
+          >
+            <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-white w-full max-w-sm md:max-w-md">
+              <h2 className="text-xl font-bold">{selectedProject.name}</h2>
+              <img src={selectedProject.img} alt={selectedProject.name} className="h-40 w-auto rounded-md" />
+              <p className="text-sm text-center">{selectedProject.about_project}</p>
+              <a
+                href={selectedProject.project_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                View Project
+              </a>
+              <button onClick={closeModal} className="mt-4 bg-slate-600 text-white px-4 py-2 rounded-xl">
+                Close
+              </button>
+            </div>
+          </Modal>
+        )}
+      </div>
+    </section>
+  );
 };
 
-export default Header;
+export default Project;
