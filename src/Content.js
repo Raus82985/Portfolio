@@ -4,6 +4,7 @@ import Hero_person from "./assets/images/Hero/person.png";
 
 import currency from "./assets/images/Projects/currency.png"
 import todo from "./assets/images/Projects/todo.png"
+import BlogBook from "./assets/images/Projects/BlogBook.png"
 
 
 
@@ -42,7 +43,7 @@ export const content = {
       { name: "Node js", percentage: 70 },
       { name: "Express js", percentage: 65 },
       { name: "Redux", percentage: 60 },
-      { name: "SQL", percentage: 55 },
+      // { name: "SQL", percentage: 55 },
       { name: "Mongo DB", percentage: 50 },
       { name: "Python", percentage: 45 },
     ],
@@ -65,9 +66,7 @@ export const content = {
           publication: "Secrecy and Reliability Analysis of Underlay Cooperative Radios with CSI-Assisted Power Apportioning*",
           link: "https://drive.google.com/file/d/1g7A_QrAFAfZ1IK5K9ZXUW4Rm_yZF0nyU/view?usp=sharing",
           para: "In an underlay cognitive radio (CR) system, secondary users can transmit during primary transmissions but must limit interference to the primary receiver. Amplify-and-forward (AF) relaying enhances CR performance by offering an alternative signal path but risks eavesdropping due to the wireless medium's broadcast nature. This study explores the secrecy performance of an underlay cooperative CR network with an eavesdropping AF relay using a semi-duplex model. We introduce a novel interference temperature limit (ITL) apportioning factor to enable destination-assisted jamming and use a new joint secrecy and reliability metric. Results indicate that an optimal ITL apportioning factor minimizes joint secrecy and reliability outage, showing improved performance with perfect channel state information for secondary nodes."
-        },
-        
-        
+        },  
       ]
     },
 
@@ -107,6 +106,14 @@ export const content = {
         img: currency,
         name: "Currency Converter",
         project_url: 'https://currency-converter-ashy-theta-43.vercel.app/'
+      },
+      //blog - book
+      {
+        about_project:
+          "I created a blog book website using Appwrite, React, and JavaScript. The project allows users to create, manage, and browse blog posts seamlessly. Appwrite serves as the backend, providing user authentication, database management, and storage services, ensuring a secure and scalable environment. React was used to build a dynamic and responsive user interface, enhancing the user experience with smooth navigation and interactive features. JavaScript ties the project together, handling logic and functionality across the application. This project showcases the integration of modern web technologies to deliver a comprehensive blogging platform.",
+        img: BlogBook,
+        name: "Blog-Book",
+        project_url: 'https://blog-book-roan.vercel.app/'
       },
      
     ],
