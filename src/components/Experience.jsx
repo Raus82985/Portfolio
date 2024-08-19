@@ -71,7 +71,7 @@ const Experience = () => {
 
           {/* Experience Section */}
           <div>
-            <h3 className={`font-bold mb-6 text-center underline text-xl`}>Experience</h3>
+            <h3 className={`font-bold mb-6 text-center underline text-xl`}>Working Experience</h3>
             <div className={`grid grid-cols-1 gap-5 justify-center mb-10`}>
               {Experience.Experience_content.map((exp, index) => (
                 <div
